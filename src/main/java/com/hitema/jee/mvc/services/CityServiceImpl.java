@@ -31,9 +31,12 @@ public class CityServiceImpl implements CityService{
     }
 
     @Override
-    public City create(City city) {
+    public City update(City city, long id) {
         if ( city.getLastUpdate() == null )
             city.setLastUpdate(LocalDateTime.now());
-        return repository.save(city);
+        City cityaaaahhh = repository.findById(id).get();
+        cityaaaahhh.setImage(city.getImage());
+        log.trace("------------------------------------------------------ : {} ", cityaaaahhh);
+        return repository.save(cityaaaahhh);
     }
 }

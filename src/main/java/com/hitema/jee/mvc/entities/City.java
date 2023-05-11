@@ -2,7 +2,6 @@ package com.hitema.jee.mvc.entities;
 
 import jakarta.persistence.*;
 
-import java.sql.Blob;
 import java.time.LocalDateTime;
 
 @Entity
@@ -47,6 +46,15 @@ public class City {
         return this;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public City setImage(byte[] image) {
+        this.image = image;
+        return this;
+    }
+
     public Boolean getCapital() {
         return capital;
     }
@@ -81,6 +89,7 @@ public class City {
                 ", city='" + city + '\'' +
                 ", country=" + country +
                 ", capital=" + capital +
+                ", image=" + image +
                 ", lastUpdate=" + lastUpdate +
                 '}';
     }

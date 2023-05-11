@@ -19,7 +19,7 @@
 </head>
 <body>
 <div style="text-align: center" class="w3-container">
-  <form name="cityForm" action="cityImageModify" method="POST">
+  <form name="cityForm" action="cityImageModify" method="POST" enctype=\"multipart/form-data\">
     <table>
       <tr>
         <td>Image à insérer :</td>

@@ -54,7 +54,7 @@ public class CityController {
     @PostMapping("/cities/{id}/cityImageModify")
 	public ModelAndView cityImageModify(@PathVariable Long id, @ModelAttribute("cityForm") City city, ModelMap model) {
 		log.trace("Appel cityImageModify : {} ", city);
-		service.create(city);
+		service.update(city, id);
 		return new ModelAndView("cityImageModify", "city", city);
 	}
 }

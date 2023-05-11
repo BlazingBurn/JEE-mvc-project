@@ -51,6 +51,10 @@
                     <th>MAJ</th>
                     <th>${cityDetails.lastUpdate}</th>
                 </tr>
+                <tr class="w3-light-grey">
+                    <th>IMAGE</th>
+                    <th>${cityDetails.image}</th>
+                </tr>
             </thead>
             <tbody>
             
