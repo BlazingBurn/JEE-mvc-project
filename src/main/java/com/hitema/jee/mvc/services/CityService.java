@@ -5,5 +5,6 @@ import com.hitema.jee.mvc.entities.City;
 import java.util.List;
 
 public interface CityService {
-    List<City> readAll() ;
+    List<City> readAll();
+    City getDetails(long id);
 }

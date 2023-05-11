@@ -2,6 +2,7 @@ package com.hitema.jee.mvc.entities;
 
 import jakarta.persistence.*;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,6 +22,8 @@ public class City {
     private Country country;
 
     private Boolean capital;
+
+    // private Blob image;
 
     @Column(name="last_update")
     private LocalDateTime lastUpdate;

@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,6 +24,15 @@ public class CityController {
         var view = new ModelAndView();
         view.addObject("mmsg","autres attribut");
         view.addObject("cities",service.readAll());
+        return view;
+    }
+
+    @GetMapping("/cities/{id}")
+    public ModelAndView getCityDetails(@PathVariable Long id){
+        log.trace("Get city details for id : " + id);
+        var view = new ModelAndView("cityDetails");
+        view.addObject("mmsg","autres attribut");
+        view.addObject("cityDetails", service.getDetails(id));
         return view;
     }
 }

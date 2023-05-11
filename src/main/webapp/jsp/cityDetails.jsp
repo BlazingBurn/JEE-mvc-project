@@ -21,38 +21,38 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-    <title>Countries JSP</title>
+    <title>City Details</title>
 </head>
 
 <body onload="init()">
 
 <div class="w3-container">
-    <h2 style="text-align: center"><spring:message code="page.city.title"/></h2>
+    <h2 style="text-align: center">${cityDetails.city}</h2>
     <br>
     <a class="w3-button" href="<c:url value="/" />"><spring:message code="application.back"/></a>
 
     <div class="w3-container w3-center">
-        <a class="w3-button" href="<c:url value="/" />"><spring:message code="application.new"/></a>
-        <table id="appTable" class="display w3-centered w3-table-all">
+        <table id="CityTable" class="display w3-centered w3-table-all">
             <thead>
-            <tr class="w3-light-grey">
-                <th><spring:message code="application.id"/></th>
-                <th><spring:message code="application.city"/></th>
-                <th><spring:message code="application.country"/></th>
-            </tr>
+                <tr class="w3-light-grey">
+                    <th>ID</th>
+                    <th>${cityDetails.id}</th>
+                </tr>
+                <tr class="w3-light-grey">
+                    <th>Nom</th>
+                    <th>${cityDetails.city}</th>
+                </tr>
+                <tr class="w3-light-grey">
+                    <th>Pays</th>
+                    <th>${cityDetails.country.country}</th>
+                </tr>
+                <tr class="w3-light-grey">
+                    <th>MAJ</th>
+                    <th>${cityDetails.lastUpdate}</th>
+                </tr>
             </thead>
             <tbody>
-            <c:forEach items="${cities}" var="elem">
-                <tr>
-                    <th scope="row">${elem.id}</th>
-                    <td>
-                        <a class="w3-button" href="<c:url value="/cities/${elem.id}" />">
-                        ${elem.city}
-                        </a>
-                    </td>
-                    <td>${elem.country.country}</td>
-                </tr>
-            </c:forEach>
+            
             </tbody>
         </table>
     </div>
@@ -62,10 +62,11 @@
         let location = "static/langages"
         $(document).ready(function () {
             $('#appTable').DataTable({
-                "bInfo": true, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
+                "bInfo": false, //Dont display info e.g. "Showing 1 to 4 of 4 entries"
                 "paging": false,//Dont want paging
                 "bPaginate": false,//Dont want paging
                 "processing": true,
+                "filter": false,
                 language: {
                     url: location
                 }
