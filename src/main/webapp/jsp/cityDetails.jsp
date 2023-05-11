@@ -30,6 +30,7 @@
     <h2 style="text-align: center">${cityDetails.city}</h2>
     <br>
     <a class="w3-button" href="<c:url value="/" />"><spring:message code="application.back"/></a>
+    <a class="w3-button" href="<c:url value="${cityDetails.id}/cityImageModify" />"><spring:message code="application.city.image"/></a>
 
     <div class="w3-container w3-center">
         <table id="CityTable" class="display w3-centered w3-table-all">

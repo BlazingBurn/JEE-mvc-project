@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -27,5 +28,12 @@ public class CityServiceImpl implements CityService{
     @Override
     public City getDetails(long id) {
         return repository.findById(id).get();
+    }
+
+    @Override
+    public City create(City city) {
+        if ( city.getLastUpdate() == null )
+            city.setLastUpdate(LocalDateTime.now());
+        return repository.save(city);
     }
 }

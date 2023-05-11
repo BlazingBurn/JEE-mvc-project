@@ -23,7 +23,8 @@ public class City {
 
     private Boolean capital;
 
-    // private Blob image;
+    @Lob
+    private byte[] image;
 
     @Column(name="last_update")
     private LocalDateTime lastUpdate;
